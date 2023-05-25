@@ -2,8 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
-const User = require('./models/user');  // Import User model
 const userRoutes = require('./routes/userRoutes');  // Import user routes
+const coffeeRoutes = require('./routes/coffeeRoutes');
 
 // express app
 const app = express();
@@ -14,6 +14,7 @@ app.use(express.json());
 
 // Use user routes under the /api path
 app.use('/api', userRoutes);
+app.use('/api', coffeeRoutes);
 
 // database connection
 mongoose.connect("mongodb+srv://jakobcamposjc:w1mfBvnU5bEhDPRR@coffeedb.hbhnxga.mongodb.net/?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true })
